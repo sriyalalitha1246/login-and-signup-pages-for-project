@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sthaan - Signup</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff5a5f 0%, #ffa94d 100%);
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(255, 90, 95, 0.2);
+            padding: 40px 35px 35px 35px;
+            width: 370px;
+            text-align: center;
+            position: relative;
+        }
+        .graphic {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 18px auto;
+            border-radius: 50%;
+            background: radial-gradient(circle at 25px 25px, #ff5a5f 60%, #ffa94d 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(255, 90, 95, 0.25);
+        }
+        .graphic svg {
+            width: 42px;
+            height: 42px;
+            fill: white;
+        }
+        h2 {
+            color: #ff5a5f;
+            margin: 12px 0 28px 0;
+            font-weight: 700;
+            font-size: 1.7em;
+        }
+        input {
+            width: 100%;
+            padding: 14px 12px;
+            margin-bottom: 18px;
+            border: 1.8px solid #ffa94d;
+            border-radius: 8px;
+            font-size: 1.1em;
+            transition: border-color 0.3s ease;
+            box-sizing: border-box;
+        }
+        input:focus {
+            border-color: #ff5a5f;
+            outline: none;
+            box-shadow: 0 0 8px rgba(255, 90, 95, 0.4);
+        }
+        button {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(90deg, #ff5a5f 0%, #ffa94d 100%);
+            border: none;
+            color: #fff;
+            font-size: 1.15em;
+            font-weight: 700;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 6px 20px rgba(255, 90, 95, 0.3);
+            transition: background 0.3s ease;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #ffa94d 0%, #ff5a5f 100%);
+        }
+        p {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #666;
+        }
+        p a {
+            color: #ff5a5f;
+            text-decoration: underline;
+            transition: color 0.2s ease;
+        }
+        p a:hover {
+            color: #ffa94d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="graphic" aria-label="House icon">
+            <!-- SVG home icon analogous to login page for brand unity -->
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 12 L12 6 L19 12" stroke="white" stroke-width="2" fill="none" />
+                <rect x="8" y="12" width="8" height="8" rx="2" fill="white" opacity="0.9" />
+            </svg>
+        </div>
+        <h2>Create Your Account</h2>
+        <form onsubmit="signup(event)">
+            <input type="text" id="name" placeholder="Full Name" required />
+            <input type="tel" id="phno" placeholder="Phone Number" pattern="[0-9]{10}" title="Enter 10 digit phone number" required />
+            <input type="email" id="email" placeholder="Email" required />
+            <input type="text" id="address" placeholder="Address" required />
+            <input type="password" id="password" placeholder="Password" required />
+            <button type="submit">Signup</button>
+        </form>
+        <p>Already have an account? <a href="login.html">Login here</a></p>
+    </div>
+
+    <script>
+        function signup(event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const phno = document.getElementById('phno').value;
+            const email = document.getElementById('email').value;
+            const address = document.getElementById('address').value;
+            const password = document.getElementById('password').value;
+
+            localStorage.setItem('sth_name', name);
+            localStorage.setItem('sth_phno', phno);
+            localStorage.setItem('sth_email', email);
+            localStorage.setItem('sth_address', address);
+            localStorage.setItem('sth_password', password);
+
+            alert('Signup successful! You can now login.');
+            window.location.href = 'login.html';
+        }
+    </script>
+</body>
+</html>
